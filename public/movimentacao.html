@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimentação</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="/">Início</a>
+            <a href="/usuarios">Usuários</a>
+            <a href="/categorias">Categorias</a>
+            <a href="/movimentacao">Movimentação</a>
+            <a href="/cadastro">Cadastro</a>    
+        </nav>
+        <h1>Registrar Movimentação</h1>
+        <form>
+            <input type="text" placeholder="Descrição">
+            <input type="number" placeholder="Valor">
+            <select>
+                <option>Entrada</option>
+                <option>Saída</option>
+            </select>
+            <button type="submit">Salvar</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Salário</td><td>R$ 3000,00</td><td>Entrada</td></tr>
+                <tr><td>Mercado</td><td>R$ 250,00</td><td>Saída</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
