@@ -11,7 +11,7 @@ app.use(express.static("public")); //definindo a pasta public como estática
 app.set('view engine', 'ejs'); //configurar que a aplicação vai usar EJS
 app.set('views', path.join(__dirname, 'public', 'views')); //sinalizar pro app.js que o views esta na pasta public e não no caminho atual
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({ extended: true }));
 
 //definindo a porta do servidor
 const PORTA = 3000;
@@ -30,7 +30,7 @@ app.use('/movimentacao', routesMovimentacao);
 
 //definindo a rota principal
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
     //path.join() é usado para criar um caminho absoluto para o arquivo index.html
     //__dirname é uma variável global do Node.js que retorna o diretório atual do arquivo em execução
     //res.sendFile() é um método do Express que envia um arquivo como resposta para o cliente
@@ -41,15 +41,15 @@ app.get("/", (req,res) => {
 });
 
 //definindo a rota para a página de login
-app.get("/login", (req,res) => {
+app.get("/login", (req, res) => {
     //res.sendFile(path.join(__dirname, "public", "login.html"));
     res.render('login');
 });
-app.get("/processar-login", (req,res) => {
+app.get("/processar-login", (req, res) => {
     //res.sendFile(path.join(__dirname, "public", "tela-inicial"));
-    const {email, senha} = req.query; // pegar informações via get 
+    const { email, senha } = req.query; // pegar informações via get 
 
-    res.render('tela-inicial', {email}); //renderizar tela, passando as informações pra ela
+    res.render('tela-inicial', { email }); //renderizar tela, passando as informações pra ela
 });
 
 

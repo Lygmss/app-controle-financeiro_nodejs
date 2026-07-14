@@ -7,8 +7,20 @@ const connection = require("../database/connection");
 //onde vai ficar as configurações do express
 router.get("/", (req, res) => {
     //res.sendFile(path.join(__dirname, "..", "categorias"));
-    res.render('categorias');
+    connection.query(
+        "SELECT * FROM tb_categorias",
+        (erro, resultado) => {
+            if (erro) {
+                console.log("Erro ao consultar categorias");
+            }
+            else {
+                res.render("categorias", { resultados: resultado });
+            }
+        }
+    )
 });
+
+
 //definindo a rota para cadastrar categoria
 router.get("/cadastrar", (req, res) => {
     //res.sendFile(path.join(__dirname, "..", "cadastrar-categoria.html"));
@@ -16,18 +28,18 @@ router.get("/cadastrar", (req, res) => {
     res.render('cadastrar-categoria');
 });
 
-router.post("/cadastrar", (req,res) => {
+router.post("/cadastrar", (req, res) => {
     //interação com o banco de dados
-    const {nome} = req.body;
+    const { nome } = req.body;
 
     connection.query(
         "INSERT INTO tb_categorias(nome, ativo) VALUES (?, ?)",
         [nome, 1],
         (erro) => {
-            if(erro) {
+            if (erro) {
                 console.log("Erro ao cadastrar");
-            } 
-            else{
+            }
+            else {
                 res.redirect("/categorias/");
             }
         }
