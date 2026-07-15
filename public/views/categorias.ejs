@@ -20,18 +20,27 @@
 
             <p> <%= categorias.nome %> </p>
 
-        <% }); %>
+       
 
-        <!-- <ul>
+           
+            <button>
+                <a href="/categorias/deletar/<%= categorias.id %>">Deletar categoria</a>
+            </button>
+        <% }); %>
+             <button>
+                <a href="/categorias/cadastrar">Adicionar categoria</a>
+            </button>
+
+            <button>
+            <a href="/categorias/editar-categoria">Editar categoria</a>
+        </button>
+
+    </div>
+</body>
+</html>
+<!-- <ul>
             <li>Alimentação</li>
             <li>Transporte</li>
             <li>Moradia</li>
         </ul> -->
       
-        <button><a href="/categorias/cadastrar">Adicionar categoria</a></button>
-        <button><a href="/categorias/editar-categoria">Editar categoria</a></button>
-        <button><a href="/categorias/deletar-categoria">Deletar categoria</a></button>
-
-    </div>
-</body>
-</html>

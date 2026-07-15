@@ -19,6 +19,23 @@ router.get("/", (req, res) => {
         }
     )
 });
+//definindo a rota para deletar categoria
+router.get("/deletar/:id",(req,res) => {
+    const {id} = req.params;
+
+    connection.query(
+        "DELETE FROM tb_categorias WHERE id = ?",
+        [id],
+        (erro) => {
+            if(erro){
+                console.log("Erro");
+            }
+            else{
+                res.redirect("/categorias");
+            }
+        }
+    )
+});
 
 
 //definindo a rota para cadastrar categoria
@@ -56,8 +73,4 @@ module.exports = router; //exportando o router para ser usado em outros arquivos
 //definindo a rota para editar categoria
 //router.get("/editar-categoria",(req,res) => {
 //    res.sendFile(path.join(__dirname, "..", "editar-categoria.html"));
-//});
-//definindo a rota para deletar categoria
-//router.get("/deletar-categoria",(req,res) => {
-//    res.sendFile(path.join(__dirname, "..", "deletar-categoria.html"));
 //});
